@@ -1,0 +1,8 @@
+.DS_Store
+.claude/
+
+# Raw source assets — not needed by the live site, kept local only
+SaveTheDate.png
+SaveTheDatePics/
+Invitation/
+Dress Code/

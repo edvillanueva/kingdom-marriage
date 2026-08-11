@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mc Rosen &amp; Krizza Lou | The Kingdom Marriage</title>
+<meta name="description" content="Join us as we celebrate the wedding of Mc Rosen &amp; Krizza Lou — August 30, 2026, Leticia's Garden, Calumpit, Bulacan.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Mrs+Saint+Delafield&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💛</text></svg>">
+
+<style>
+  :root{
+    --cream:#faf5eb;
+    --cream-deep:#f0e6d2;
+    --brown:#6b5842;
+    --brown-deep:#4a3c2c;
+    --gold:#a9834f;
+    --gold-light:#c9a668;
+    --text:#3d3226;
+    --line:#d8c9ab;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--text);
+    font-family:'Jost',sans-serif;
+    font-weight:300;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--brown-deep);}
+  .script{font-family:'Mrs Saint Delafield',cursive;font-weight:400;color:var(--gold);}
+  a{color:var(--gold);}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    align-items:flex-end;
+    background:#2a2318;
+    overflow:hidden;
+  }
+  .hero img{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+    object-position:68% 30%;
+    opacity:.88;
+  }
+  /* On narrow/tall screens a wide landscape photo forced into a full-height
+     box gets cropped down to a sliver. Relax the box to a portrait-friendly
+     ratio instead so the couple stays in frame. */
+  @media (max-width:680px){
+    .hero{
+      min-height:auto;
+      aspect-ratio:3/4;
+    }
+    .hero img{
+      object-position:70% 26%;
+    }
+  }
+  .hero::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(20,16,10,.15) 0%, rgba(20,16,10,.25) 55%, rgba(20,16,10,.75) 100%);
+  }
+  .hero-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    padding:48px 24px 56px;
+    text-align:center;
+    color:#fdf9f0;
+  }
+  .hero-eyebrow{
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    font-size:.7rem;
+    color:var(--gold-light);
+    margin-bottom:14px;
+  }
+  .hero-names{
+    font-size:clamp(2.6rem,9vw,4.5rem);
+    line-height:1.05;
+    text-shadow:0 2px 18px rgba(0,0,0,.35);
+  }
+  .hero-amp{
+    display:block;
+    font-family:'Mrs Saint Delafield',cursive;
+    font-size:.55em;
+    color:var(--gold-light);
+    margin:2px 0;
+  }
+  .hero-date{
+    margin-top:18px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.25rem;
+    letter-spacing:.05em;
+  }
+  .scroll-hint{
+    margin-top:22px;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    opacity:.75;
+  }
+
+  /* SECTION GENERIC */
+  section{padding:72px 0;}
+  .center{text-align:center;}
+  .eyebrow{
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    font-size:.7rem;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+  .section-title{
+    font-size:clamp(1.9rem,5vw,2.6rem);
+    margin-bottom:8px;
+  }
+  .verse{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:1.15rem;
+    color:var(--brown);
+    max-width:520px;
+    margin:0 auto;
+  }
+  .verse cite{
+    display:block;
+    font-style:normal;
+    font-size:.75rem;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-top:8px;
+  }
+  .divider{
+    width:60px;height:1px;
+    background:var(--line);
+    margin:28px auto;
+  }
+
+  /* DETAILS */
+  .details{background:var(--cream-deep);}
+  .detail-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:32px;
+    margin-top:40px;
+  }
+  .detail-card{
+    text-align:center;
+    padding:28px 20px;
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:2px;
+  }
+  .detail-card .icon{font-size:1.6rem;margin-bottom:10px;color:var(--gold);}
+  .detail-card h3{font-size:1.3rem;margin-bottom:6px;}
+  .detail-card p{font-size:.92rem;color:var(--brown);}
+  .map-link{
+    display:inline-block;
+    margin-top:10px;
+    font-size:.8rem;
+    letter-spacing:.05em;
+    border-bottom:1px solid var(--gold);
+    padding-bottom:1px;
+  }
+
+  /* VIDEO */
+  .video-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/10;
+    background:var(--brown-deep);
+    border-radius:2px;
+    overflow:hidden;
+    margin-top:36px;
+    cursor:pointer;
+  }
+  .video-frame iframe{
+    width:100%;height:100%;border:0;display:block;
+  }
+  .video-poster{
+    position:absolute;inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#5c4a34,#372c1f);
+    color:#fdf9f0;
+    flex-direction:column;
+    gap:14px;
+  }
+  .play-btn{
+    width:64px;height:64px;
+    border-radius:50%;
+    background:rgba(250,245,235,.14);
+    border:1px solid rgba(250,245,235,.5);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.3rem;
+  }
+  .video-poster p{font-family:'Cormorant Garamond',serif;font-size:1.05rem;letter-spacing:.03em;}
+
+  /* DRESS CODE */
+  .dress-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+    margin-top:36px;
+  }
+  .dress-card img{
+    border-radius:2px;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    object-position:top center;
+  }
+  .dress-card h3{
+    margin-top:14px;
+    font-size:1.2rem;
+    text-align:center;
+  }
+  .swatches{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-top:10px;
+  }
+  .swatch{width:22px;height:22px;border-radius:50%;border:1px solid rgba(0,0,0,.1);}
+
+  .dress-tier{margin-top:52px;}
+  .dress-tier:first-of-type{margin-top:36px;}
+  .dress-tier-label{
+    font-size:.75rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--gold);
+    text-align:center;
+    margin-bottom:18px;
+  }
+  .guest-cols{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  .guest-col-label{
+    font-size:.8rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--brown);
+    text-align:center;
+    margin-bottom:10px;
+  }
+  .guest-thumbs{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:6px;
+  }
+  .guest-thumbs img{
+    aspect-ratio:2/3;
+    object-fit:cover;
+    border-radius:2px;
+  }
+
+  /* ENTOURAGE */
+  .entourage{background:var(--cream-deep);}
+  details.ent-toggle{
+    margin-top:32px;
+    border-top:1px solid var(--line);
+    padding-top:24px;
+  }
+  details.ent-toggle summary{
+    cursor:pointer;
+    list-style:none;
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.15rem;
+    color:var(--brown);
+    letter-spacing:.05em;
+  }
+  details.ent-toggle summary::-webkit-details-marker{display:none;}
+  details.ent-toggle summary::after{
+    content:" ▾";
+    color:var(--gold);
+  }
+  details.ent-toggle[open] summary::after{content:" ▴";}
+  .ent-body{margin-top:32px;}
+  .ent-block{margin-bottom:32px;}
+  .ent-block h4{
+    text-align:center;
+    font-size:.75rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:14px;
+  }
+  .ent-pair{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+    text-align:center;
+    font-size:.92rem;
+  }
+  .ent-pair ul, .ent-single ul{list-style:none;}
+  .ent-pair li, .ent-single li{margin-bottom:4px;}
+  .ent-single{text-align:center;font-size:.92rem;}
+
+  /* RSVP */
+  .rsvp-card{
+    margin-top:32px;
+    padding:36px 28px;
+    background:var(--cream);
+    border:1px solid var(--line);
+    text-align:center;
+    border-radius:2px;
+  }
+  .rsvp-card p{margin-bottom:18px;font-size:.95rem;}
+  .rsvp-contact{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.5rem;
+    color:var(--brown-deep);
+  }
+  .rsvp-note{
+    margin-top:16px;
+    font-size:.78rem;
+    color:var(--brown);
+    opacity:.8;
+  }
+
+  footer{
+    padding:48px 0 60px;
+    text-align:center;
+  }
+  footer .script{font-size:2rem;}
+  footer .foot-names{font-family:'Cormorant Garamond',serif;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;color:var(--brown);margin-top:8px;}
+
+  /* GALLERY */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:36px;
+  }
+  .gallery-grid img{
+    width:100%;height:100%;
+    object-fit:cover;
+    display:block;
+    border-radius:2px;
+  }
+  .gallery-grid figure{margin:0;overflow:hidden;border-radius:2px;}
+  .g-tall{aspect-ratio:4/5;}
+  .g-wide{grid-column:1/-1;aspect-ratio:16/8;}
+
+  @media (max-width:560px){
+    .detail-grid,.dress-grid,.ent-pair{grid-template-columns:1fr;}
+    .g-wide{aspect-ratio:4/5;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <img src="assets/img/hero.jpg" alt="Mc Rosen and Krizza Lou" fetchpriority="high">
+  <div class="hero-content">
+    <div class="hero-eyebrow">The Wedding Of</div>
+    <h1 class="hero-names">Mc Rosen<span class="hero-amp">&amp;</span>Krizza Lou</h1>
+    <div class="hero-date">Sunday, August 30, 2026 · 4:30 PM</div>
+    <div class="scroll-hint">Leticia's Garden, Calumpit, Bulacan</div>
+  </div>
+</section>
+
+<section class="details">
+  <div class="wrap center">
+    <div class="eyebrow">Join Us</div>
+    <h2 class="section-title">Details</h2>
+    <p class="verse">&ldquo;I have found the one whom my soul loves.&rdquo;<cite>Songs of Solomon 3:4</cite></p>
+
+    <div class="detail-grid">
+      <div class="detail-card">
+        <div class="icon">🗓</div>
+        <h3>Sunday, August 30, 2026</h3>
+        <p>Ceremony begins at 4:30 PM</p>
+      </div>
+      <div class="detail-card">
+        <div class="icon">📍</div>
+        <h3>Leticia's Garden</h3>
+        <p>33 Pulilan–Calumpit Regional Road,<br>Sto. Niño, Calumpit, Bulacan</p>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Leticia%27s+Garden+Sto+Nino+Calumpit+Bulacan" target="_blank" rel="noopener">Open in Maps →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap center">
+    <div class="eyebrow">Behind the Scenes</div>
+    <h2 class="section-title">A Few of Our Moments</h2>
+    <p class="verse" style="font-style:normal;font-size:.95rem;color:var(--brown);">The everyday ones — game nights, motorcycle rides, and quiet evenings — that led us here.</p>
+
+    <div class="gallery-grid">
+      <figure class="g-tall"><img src="assets/img/gallery-1.jpg" alt="Mc Rosen and Krizza Lou on a rooftop balcony" loading="lazy" style="object-position:54% 60%;"></figure>
+      <figure class="g-tall"><img src="assets/img/gallery-2.jpg" alt="Mc Rosen and Krizza Lou on a motorcycle" loading="lazy" style="object-position:50% 58%;"></figure>
+      <figure class="g-wide"><img src="assets/img/gallery-5.jpg" alt="Mc Rosen playing guitar for Krizza Lou" loading="lazy" style="object-position:50% 45%;"></figure>
+      <figure class="g-tall"><img src="assets/img/gallery-3.jpg" alt="Mc Rosen and Krizza Lou laughing on the bed" loading="lazy" style="object-position:48% 45%;"></figure>
+      <figure class="g-tall"><img src="assets/img/gallery-4.jpg" alt="Mc Rosen and Krizza Lou playing video games" loading="lazy" style="object-position:52% 42%;"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="video-section">
+  <div class="wrap center">
+    <div class="eyebrow">A Little Note</div>
+    <h2 class="section-title">Our Invitation to You</h2>
+    <div class="video-frame" id="videoFrame">
+      <div class="video-poster" id="videoPoster">
+        <div class="play-btn">▶</div>
+        <p>Tap to watch our invitation</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dress-code">
+  <div class="wrap center">
+    <div class="eyebrow">What to Wear</div>
+    <h2 class="section-title">Dress Code</h2>
+    <p class="verse" style="font-style:normal;font-size:.95rem;color:var(--brown);">Earthy neutrals, please — we'd love for everyone to blend into our garden palette.</p>
+
+    <div class="dress-tier">
+      <div class="dress-tier-label">For Our Entourage</div>
+      <div class="dress-grid">
+        <div class="dress-card">
+          <img src="assets/img/dresscode-female.jpg" alt="Entourage ladies dress code inspiration — earthy long dresses" loading="lazy">
+          <h3>Ladies</h3>
+          <p style="text-align:center;font-size:.85rem;color:var(--brown);">Long dresses in cream, taupe, or brown</p>
+          <div class="swatches">
+            <span class="swatch" style="background:#e9dfc9;"></span>
+            <span class="swatch" style="background:#a68a63;"></span>
+            <span class="swatch" style="background:#6b5842;"></span>
+          </div>
+        </div>
+        <div class="dress-card">
+          <img src="assets/img/dresscode-male.jpg" alt="Entourage gentlemen dress code inspiration — cream barong with black pants" loading="lazy">
+          <h3>Gentlemen</h3>
+          <p style="text-align:center;font-size:.85rem;color:var(--brown);">Cream / beige Barong with black pants</p>
+          <div class="swatches">
+            <span class="swatch" style="background:#f0e8d4;"></span>
+            <span class="swatch" style="background:#2b2620;"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dress-tier">
+      <div class="dress-tier-label">For Our Guests</div>
+      <p style="font-size:.85rem;color:var(--brown);max-width:480px;margin:0 auto 22px;">Semi-formal to formal attire in earthy neutrals — think cream, beige, taupe, brown, and soft blush. Filipiniana welcome.</p>
+      <div class="guest-cols">
+        <div>
+          <div class="guest-col-label">Women</div>
+          <div class="guest-thumbs">
+            <img src="assets/img/guest-women-1.jpg" alt="Guest women attire example — neutral maxi dress" loading="lazy">
+            <img src="assets/img/guest-women-2.jpg" alt="Guest women attire example — filipiniana gown" loading="lazy">
+            <img src="assets/img/guest-women-3.jpg" alt="Guest women attire example — blush gown" loading="lazy">
+          </div>
+        </div>
+        <div>
+          <div class="guest-col-label">Men</div>
+          <div class="guest-thumbs">
+            <img src="assets/img/guest-men-1.jpg" alt="Guest men attire example — brown blazer with cream trousers" loading="lazy">
+            <img src="assets/img/guest-men-2.jpg" alt="Guest men attire example — beige blazer" loading="lazy">
+            <img src="assets/img/guest-men-3.jpg" alt="Guest men attire example — white shirt with khaki trousers" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="entourage">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">With Gratitude</div>
+      <h2 class="section-title">The Kingdom Marriage</h2>
+      <p class="verse">&ldquo;Three strands are not easily broken.&rdquo;<cite>Ecclesiastes 4:12</cite></p>
+    </div>
+
+    <details class="ent-toggle">
+      <summary>View the wedding entourage</summary>
+      <div class="ent-body">
+
+        <div class="ent-block">
+          <h4>Parents</h4>
+          <div class="ent-pair">
+            <div>
+              <p style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Groom</p>
+              <ul><li>Jimmy Villasista</li><li>Rosemarie Villasista</li></ul>
+            </div>
+            <div>
+              <p style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Bride</p>
+              <ul><li>Tadeo Carabbacan</li><li>Maria Lourdes Carabbacan</li></ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="ent-block">
+          <h4>Principal Sponsors</h4>
+          <div class="ent-pair">
+            <ul>
+              <li>Ptr. Ricky Jumig</li>
+              <li>Ptr. Dave Moldez</li>
+              <li>Dr. Azriel Azarcon</li>
+              <li>Dr. Alejandro Du</li>
+              <li>Hon. Christian Casta&ntilde;eda</li>
+              <li>Atty. July Agpaoa</li>
+              <li>Engr. Joenel Guadiz</li>
+              <li>Engr. Ramil Noel Egamino</li>
+              <li>Marwin Luz</li>
+              <li>Richard Chua</li>
+              <li>Christian Catahan</li>
+              <li>Randy Gonzales</li>
+              <li>Gomer Perdido</li>
+              <li>Fernando Martinez</li>
+              <li>Rosie Domingo</li>
+              <li>Flory Sarabuno</li>
+              <li>Bernadette Raymundo</li>
+            </ul>
+            <ul>
+              <li>Rochelle Jumig</li>
+              <li>Linda Moldez</li>
+              <li>Dr. Gloria Azarcon</li>
+              <li>Dr. Jean Go Du</li>
+              <li>Engr. Rosehleen Anjela Buenavista</li>
+              <li>Atty. Cela Magdalene Agpaoa</li>
+              <li>Andrelyn Guadiz</li>
+              <li>Ester Egamino</li>
+              <li>Imelda Luz</li>
+              <li>Nelia Camacho</li>
+              <li>Imelda Tagura</li>
+              <li>Norma Gonzales</li>
+              <li>Eden Perdido</li>
+              <li>Marilou Martinez</li>
+              <li>Marilyn Manzan</li>
+              <li>Ollie Nepomuceno</li>
+              <li>Corazon Felix</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="ent-block">
+          <h4>Best Men &amp; Maids of Honor</h4>
+          <div class="ent-pair">
+            <div>
+              <p style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Best Men</p>
+              <ul><li>Mc Peter Villasista</li><li>Aerodyn Tagura</li></ul>
+            </div>
+            <div>
+              <p style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Maids of Honor</p>
+              <ul><li>Angelyn Dela Cruz</li><li>Hikari Ueda</li></ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="ent-block">
+          <h4>Groomsmen &amp; Bridesmaids</h4>
+          <div class="ent-pair">
+            <div>
+              <p style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Groomsmen</p>
+              <ul>
+                <li>Emmanuel Luis Villanueva</li>
+                <li>Villi Lee Vega</li>
+                <li>John Clarence Jimena</li>
+                <li>Charles Evangelista</li>
+                <li>Jonathan Manzan</li>
+                <li>Wilson Rifol</li>
+                <li>Marjon Colorado</li>
+                <li>Juan Karlo Carabbacan</li>
+              </ul>
+            </div>
+            <div>
+              <p style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Bridesmaids</p>
+              <ul>
+                <li>Rica Anne Ramos</li>
+                <li>Zynah Rhoss Tagura</li>
+                <li>Donna Charisse Tagura</li>
+                <li>Chanda Marie Maceda</li>
+                <li>Ropheallah Zoe Jumig</li>
+                <li>Clarisse Maceda</li>
+                <li>Ryna Anjela Buenavista</li>
+                <li>Karen Maydalynne Carabbacan</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="rsvp">
+  <div class="wrap center">
+    <div class="eyebrow">Kindly Respond</div>
+    <h2 class="section-title">RSVP</h2>
+    <div class="rsvp-card">
+      <p>We can't wait to celebrate with you. Please let us know if you'll be joining us by reaching out directly.</p>
+      <div class="rsvp-contact">📞 0976 236 3224</div>
+      <p class="rsvp-note">Groom's office &middot; please RSVP at your earliest convenience</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="script">Mc Rosen &amp; Krizza Lou</div>
+  <div class="foot-names">August 30, 2026 &middot; Calumpit, Bulacan</div>
+</footer>
+
+<script>
+  var poster = document.getElementById('videoPoster');
+  var frame = document.getElementById('videoFrame');
+  poster.addEventListener('click', function(){
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://drive.google.com/file/d/1Z601LzQrPMS5vm0BfNdRNbq507j_T4x4/preview';
+    iframe.allow = 'autoplay';
+    iframe.setAttribute('allowfullscreen', '');
+    frame.innerHTML = '';
+    frame.appendChild(iframe);
+  });
+</script>
+
+</body>
+</html>
