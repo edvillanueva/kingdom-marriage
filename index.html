@@ -71,30 +71,41 @@
   .hero::after{
     content:"";
     position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(15,12,7,.2) 0%, rgba(15,12,7,.32) 40%, rgba(15,12,7,.88) 100%);
+    background:linear-gradient(180deg, rgba(15,12,7,.12) 0%, rgba(15,12,7,.18) 45%, rgba(15,12,7,.4) 100%);
   }
   .hero-content{
     position:relative;
     z-index:2;
     width:100%;
-    padding:48px 24px 60px;
+    padding:34px 24px 40px;
     text-align:center;
     color:#fffdf8;
+  }
+  /* Guaranteed-contrast backdrop for the names, independent of whatever is
+     in the photo behind it (skin tone, light fabric, sky). A gradient over
+     the whole photo isn't reliable on its own — this solid frosted panel is. */
+  .hero-content::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(12,10,6,0) 0%, rgba(12,10,6,.6) 22%, rgba(10,8,5,.86) 100%);
+    -webkit-backdrop-filter:blur(3px);
+    backdrop-filter:blur(3px);
+    z-index:-1;
   }
   .hero-eyebrow{
     letter-spacing:.28em;
     text-transform:uppercase;
     font-size:.85rem;
-    font-weight:500;
+    font-weight:600;
     color:var(--gold-light);
     margin-bottom:14px;
-    text-shadow:0 1px 6px rgba(0,0,0,.6);
   }
   .hero-names{
     font-weight:700;
     font-size:clamp(2.6rem,9vw,4.5rem);
     line-height:1.05;
-    text-shadow:0 2px 6px rgba(0,0,0,.75), 0 4px 30px rgba(0,0,0,.6);
+    text-shadow:0 2px 10px rgba(0,0,0,.5);
   }
   .hero-amp{
     display:block;
@@ -109,14 +120,13 @@
     font-weight:600;
     font-size:1.3rem;
     letter-spacing:.05em;
-    text-shadow:0 1px 8px rgba(0,0,0,.6);
   }
   .scroll-hint{
     margin-top:22px;
     font-size:.8rem;
     letter-spacing:.15em;
     text-transform:uppercase;
-    text-shadow:0 1px 6px rgba(0,0,0,.6);
+    color:var(--gold-light);
   }
 
   /* SECTION GENERIC */
@@ -290,12 +300,26 @@
   .guest-thumbs{
     display:grid;
     grid-template-columns:1fr 1fr 1fr;
-    gap:6px;
+    gap:10px;
   }
-  .guest-thumbs img{
-    aspect-ratio:2/3;
-    object-fit:cover;
-    border-radius:2px;
+  .thumb-card{
+    aspect-ratio:3/4;
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:6px;
+    box-shadow:0 2px 10px rgba(74,60,44,.08);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:8px;
+    overflow:hidden;
+  }
+  .thumb-card img{
+    max-width:100%;
+    max-height:100%;
+    width:auto;
+    height:auto;
+    object-fit:contain;
   }
 
   /* ENTOURAGE */
@@ -357,7 +381,37 @@
   }
   footer .script{font-size:2rem;}
   footer .foot-names{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:.95rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brown-deep);margin-top:8px;}
-  footer .foot-contact{font-size:1rem;font-weight:500;color:var(--brown-deep);margin-top:18px;}
+
+  /* CONTACT */
+  .contact{background:var(--cream-deep);}
+  .contact-card{
+    margin-top:32px;
+    padding:32px 28px;
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:6px;
+    text-align:center;
+  }
+  .contact-label{
+    font-size:.85rem;
+    font-weight:600;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+  .contact-phone{
+    display:inline-block;
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;
+    font-size:1.7rem;
+    color:var(--brown-deep);
+  }
+  .contact-note{
+    margin-top:14px;
+    font-size:.9rem;
+    color:var(--text);
+  }
 
   /* GALLERY */
   .gallery-grid{
@@ -497,17 +551,17 @@
         <div>
           <div class="guest-col-label">Women</div>
           <div class="guest-thumbs">
-            <img src="assets/img/guest-women-1.jpg" alt="Guest women attire example — neutral maxi dress" loading="lazy">
-            <img src="assets/img/guest-women-2.jpg" alt="Guest women attire example — filipiniana gown" loading="lazy">
-            <img src="assets/img/guest-women-3.jpg" alt="Guest women attire example — blush gown" loading="lazy">
+            <div class="thumb-card"><img src="assets/img/guest-women-1.jpg" alt="Guest women attire example — neutral maxi dress" loading="lazy"></div>
+            <div class="thumb-card"><img src="assets/img/guest-women-2.jpg" alt="Guest women attire example — filipiniana gown" loading="lazy"></div>
+            <div class="thumb-card"><img src="assets/img/guest-women-3.jpg" alt="Guest women attire example — blush gown" loading="lazy"></div>
           </div>
         </div>
         <div>
           <div class="guest-col-label">Men</div>
           <div class="guest-thumbs">
-            <img src="assets/img/guest-men-1.jpg" alt="Guest men attire example — brown blazer with cream trousers" loading="lazy">
-            <img src="assets/img/guest-men-2.jpg" alt="Guest men attire example — beige blazer" loading="lazy">
-            <img src="assets/img/guest-men-3.jpg" alt="Guest men attire example — white shirt with khaki trousers" loading="lazy">
+            <div class="thumb-card"><img src="assets/img/guest-men-1.jpg" alt="Guest men attire example — brown blazer with cream trousers" loading="lazy"></div>
+            <div class="thumb-card"><img src="assets/img/guest-men-2.jpg" alt="Guest men attire example — beige blazer" loading="lazy"></div>
+            <div class="thumb-card"><img src="assets/img/guest-men-3.jpg" alt="Guest men attire example — white shirt with khaki trousers" loading="lazy"></div>
           </div>
         </div>
       </div>
@@ -636,10 +690,22 @@
   </div>
 </section>
 
+<section class="contact">
+  <div class="wrap center">
+    <div class="eyebrow">Have Questions?</div>
+    <h2 class="section-title">Reach Out to Us</h2>
+    <p class="lead">For clarifications about the ceremony, venue, or anything else about the celebration, feel free to get in touch.</p>
+    <div class="contact-card">
+      <div class="contact-label">Groom's Office</div>
+      <a class="contact-phone" href="tel:+639762363224">📞 0976 236 3224</a>
+      <p class="contact-note">Available for calls and texts</p>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="script">Mc Rosen &amp; Krizza Lou</div>
   <div class="foot-names">August 30, 2026 &middot; Calumpit, Bulacan</div>
-  <div class="foot-contact">Questions? 📞 0976 236 3224</div>
 </footer>
 
 <script>
