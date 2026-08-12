@@ -376,9 +376,23 @@
   .g-tall{aspect-ratio:4/5;}
   .g-wide{grid-column:1/-1;aspect-ratio:16/8;}
 
+  @media (max-width:680px){
+    /* Phone-first: stop forcing photos into fixed crop boxes. Every gallery
+       shot is a different composition (subjects close together vs. spread
+       apart), so a uniform aspect-ratio grid keeps clipping someone out of
+       frame. Stack full, uncropped photos instead — simpler and reliable. */
+    .gallery-grid{grid-template-columns:1fr;gap:16px;}
+    .gallery-grid img{height:auto;}
+    .g-tall,.g-wide{aspect-ratio:auto;}
+
+    /* Guest dress-code thumbnails: 2 columns of 3 photos each (6 across)
+       is too cramped to read on a phone. Stack Women/Men and show 2 per row. */
+    .guest-cols{grid-template-columns:1fr;gap:24px;}
+    .guest-thumbs{grid-template-columns:1fr 1fr;}
+  }
+
   @media (max-width:560px){
     .detail-grid,.dress-grid,.ent-pair{grid-template-columns:1fr;}
-    .g-wide{aspect-ratio:16/9;}
   }
 </style>
 </head>
