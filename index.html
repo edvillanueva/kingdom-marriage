@@ -299,11 +299,13 @@
     margin-bottom:14px;
   }
   .guest-thumbs{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
     gap:14px;
   }
   .thumb-card{
+    flex:0 0 calc(33.333% - 9.334px);
     aspect-ratio:9/16;
     background:var(--cream);
     border:1px solid var(--line);
@@ -442,12 +444,13 @@
     .g-tall,.g-wide{aspect-ratio:auto;}
 
     /* Guest dress-code thumbnails: 2 columns of 3 photos each (6 across)
-       is too cramped to read on a phone. Stack Women/Men and show 2 per row,
-       with the 3rd (odd) photo centered on its own row instead of stranded
-       on the left. */
+       is too cramped to read on a phone. Stack Women/Men and show 2 per row;
+       flex-wrap naturally centers the 3rd (odd) photo on its own row instead
+       of stranding it on the left — avoids a CSS Grid auto-row-height bug on
+       mobile Safari where a spanning, self-shrinking last item threw off the
+       whole grid's height and let the next section overlap it. */
     .guest-cols{grid-template-columns:1fr;gap:24px;}
-    .guest-thumbs{grid-template-columns:1fr 1fr;}
-    .thumb-card:last-child{grid-column:1/-1;max-width:calc(50% - 5px);margin:0 auto;}
+    .thumb-card{flex-basis:calc(50% - 7px);}
   }
 
   @media (max-width:560px){
