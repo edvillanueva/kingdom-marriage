@@ -715,14 +715,40 @@
 <script>
   var video = document.getElementById('inviteVideo');
   var soundToggle = document.getElementById('soundToggle');
+  var soundUnlocked = false;
 
-  // Play (muted) once the video scrolls into view, pause when it scrolls
-  // out. Muted autoplay is allowed on iOS/mobile browsers; unmuted is not.
+  function syncSoundIcon(){
+    soundToggle.textContent = video.muted ? '🔇' : '🔊';
+    soundToggle.setAttribute('aria-label', video.muted ? 'Turn sound on' : 'Turn sound off');
+  }
+
+  // Mobile browsers require a real tap somewhere on the page before they'll
+  // allow audio to play automatically -- scrolling alone never qualifies.
+  // A single tap anywhere (not necessarily on the video) unlocks it for the
+  // rest of the visit, so by the time someone scrolls down to the video, it
+  // can autoplay with sound instead of muted.
+  function unlockSound(){
+    soundUnlocked = true;
+    document.removeEventListener('touchend', unlockSound);
+    document.removeEventListener('click', unlockSound);
+  }
+  document.addEventListener('touchend', unlockSound, { once:true });
+  document.addEventListener('click', unlockSound, { once:true });
+
+  // Play once the video scrolls into view, pause when it scrolls out. Try
+  // with sound if a tap has already unlocked it; fall back to muted if the
+  // browser still blocks it.
   if ('IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         if (entry.isIntersecting) {
-          video.play().catch(function(){ /* autoplay blocked; controls still work */ });
+          video.muted = !soundUnlocked;
+          syncSoundIcon();
+          video.play().catch(function(){
+            video.muted = true;
+            syncSoundIcon();
+            video.play().catch(function(){ /* controls still work */ });
+          });
         } else {
           video.pause();
         }
@@ -733,8 +759,7 @@
 
   soundToggle.addEventListener('click', function(){
     video.muted = !video.muted;
-    soundToggle.textContent = video.muted ? '🔇' : '🔊';
-    soundToggle.setAttribute('aria-label', video.muted ? 'Turn sound on' : 'Turn sound off');
+    syncSoundIcon();
   });
 </script>
 
