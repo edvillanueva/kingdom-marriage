@@ -29,15 +29,16 @@
     background:var(--cream);
     color:var(--text);
     font-family:'Jost',sans-serif;
-    font-weight:300;
-    line-height:1.7;
+    font-weight:400;
+    font-size:17.5px;
+    line-height:1.75;
     -webkit-font-smoothing:antialiased;
   }
   img{max-width:100%;display:block;}
   .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
-  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--brown-deep);}
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--brown-deep);}
   .script{font-family:'Mrs Saint Delafield',cursive;font-weight:400;color:var(--gold);}
-  a{color:var(--gold);}
+  a{color:var(--brown-deep);text-underline-offset:2px;}
 
   /* HERO */
   .hero{
@@ -70,78 +71,103 @@
   .hero::after{
     content:"";
     position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(20,16,10,.15) 0%, rgba(20,16,10,.25) 55%, rgba(20,16,10,.75) 100%);
+    background:linear-gradient(180deg, rgba(15,12,7,.08) 0%, rgba(15,12,7,.1) 45%, rgba(15,12,7,.22) 100%);
   }
   .hero-content{
     position:relative;
     z-index:2;
     width:100%;
-    padding:48px 24px 56px;
+    padding:34px 24px 40px;
     text-align:center;
-    color:#fdf9f0;
+    color:#fffdf8;
   }
+  /* Instead of dimming the photo (which dims the couple too), the hero text
+     carries its own contrast: a dark fill with a bright outline stroke, so
+     it pops against any part of the photo without touching the photo itself. */
   .hero-eyebrow{
     letter-spacing:.28em;
     text-transform:uppercase;
-    font-size:.7rem;
-    color:var(--gold-light);
+    font-size:.85rem;
+    font-weight:700;
+    color:#fffdf8;
+    -webkit-text-stroke:.6px var(--brown-deep);
+    paint-order:stroke fill;
     margin-bottom:14px;
   }
   .hero-names{
+    font-weight:700;
     font-size:clamp(2.6rem,9vw,4.5rem);
     line-height:1.05;
-    text-shadow:0 2px 18px rgba(0,0,0,.35);
+    color:var(--brown-deep);
+    -webkit-text-stroke:1.5px var(--gold-light);
+    paint-order:stroke fill;
+    text-shadow:0 2px 8px rgba(0,0,0,.3);
   }
   .hero-amp{
     display:block;
     font-family:'Mrs Saint Delafield',cursive;
     font-size:.55em;
     color:var(--gold-light);
+    -webkit-text-stroke:0;
     margin:2px 0;
   }
   .hero-date{
     margin-top:18px;
     font-family:'Cormorant Garamond',serif;
-    font-size:1.25rem;
+    font-weight:700;
+    font-size:1.3rem;
     letter-spacing:.05em;
+    color:#fffdf8;
+    -webkit-text-stroke:.6px var(--brown-deep);
+    paint-order:stroke fill;
   }
   .scroll-hint{
     margin-top:22px;
-    font-size:.7rem;
-    letter-spacing:.2em;
+    font-size:.8rem;
+    letter-spacing:.15em;
     text-transform:uppercase;
-    opacity:.75;
+    color:#fffdf8;
+    -webkit-text-stroke:.5px var(--brown-deep);
+    paint-order:stroke fill;
   }
 
   /* SECTION GENERIC */
   section{padding:72px 0;}
   .center{text-align:center;}
   .eyebrow{
-    letter-spacing:.28em;
+    letter-spacing:.22em;
     text-transform:uppercase;
-    font-size:.7rem;
-    color:var(--gold);
+    font-size:.8rem;
+    font-weight:600;
+    color:var(--brown-deep);
     margin-bottom:10px;
   }
   .section-title{
     font-size:clamp(1.9rem,5vw,2.6rem);
     margin-bottom:8px;
   }
+  .lead{
+    font-size:1.05rem;
+    color:var(--text);
+    max-width:520px;
+    margin:0 auto;
+  }
   .verse{
     font-family:'Cormorant Garamond',serif;
     font-style:italic;
-    font-size:1.15rem;
-    color:var(--brown);
+    font-size:1.2rem;
+    color:var(--brown-deep);
     max-width:520px;
     margin:0 auto;
   }
   .verse cite{
     display:block;
     font-style:normal;
-    font-size:.75rem;
-    letter-spacing:.15em;
+    font-size:.85rem;
+    font-weight:600;
+    letter-spacing:.12em;
     text-transform:uppercase;
-    color:var(--gold);
+    color:var(--brown-deep);
     margin-top:8px;
   }
   .divider{
@@ -165,14 +191,15 @@
     border:1px solid var(--line);
     border-radius:2px;
   }
-  .detail-card .icon{font-size:1.6rem;margin-bottom:10px;color:var(--gold);}
-  .detail-card h3{font-size:1.3rem;margin-bottom:6px;}
-  .detail-card p{font-size:.92rem;color:var(--brown);}
+  .detail-card .icon{font-size:1.8rem;margin-bottom:10px;color:var(--gold);}
+  .detail-card h3{font-size:1.35rem;margin-bottom:6px;}
+  .detail-card p{font-size:1rem;color:var(--text);}
   .map-link{
     display:inline-block;
     margin-top:10px;
-    font-size:.8rem;
-    letter-spacing:.05em;
+    font-size:.92rem;
+    font-weight:500;
+    letter-spacing:.03em;
     border-bottom:1px solid var(--gold);
     padding-bottom:1px;
   }
@@ -181,11 +208,12 @@
   .video-frame{
     position:relative;
     width:100%;
-    aspect-ratio:16/10;
+    max-width:380px;
+    aspect-ratio:9/16;
     background:var(--brown-deep);
     border-radius:2px;
     overflow:hidden;
-    margin-top:36px;
+    margin:36px auto 0;
     cursor:pointer;
   }
   .video-frame iframe{
@@ -220,14 +248,19 @@
   }
   .dress-card img{
     border-radius:2px;
-    aspect-ratio:4/3;
-    object-fit:cover;
-    object-position:top center;
+    aspect-ratio:4/5;
+    object-fit:contain;
+    background:var(--cream-deep);
   }
   .dress-card h3{
     margin-top:14px;
-    font-size:1.2rem;
+    font-size:1.3rem;
     text-align:center;
+  }
+  .cap-text{
+    text-align:center;
+    font-size:1rem;
+    color:var(--text);
   }
   .swatches{
     display:flex;
@@ -240,35 +273,55 @@
   .dress-tier{margin-top:52px;}
   .dress-tier:first-of-type{margin-top:36px;}
   .dress-tier-label{
-    font-size:.75rem;
-    letter-spacing:.2em;
-    text-transform:uppercase;
-    color:var(--gold);
+    display:inline-block;
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.4rem;
+    font-weight:600;
+    letter-spacing:.03em;
+    color:var(--brown-deep);
     text-align:center;
-    margin-bottom:18px;
+    margin-bottom:22px;
+    padding-bottom:6px;
+    border-bottom:2px solid var(--gold);
   }
+  .dress-tier > .dress-tier-label{display:block;margin-left:auto;margin-right:auto;width:fit-content;}
   .guest-cols{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:28px;
   }
   .guest-col-label{
-    font-size:.8rem;
-    letter-spacing:.1em;
+    font-size:1.05rem;
+    font-weight:600;
+    letter-spacing:.06em;
     text-transform:uppercase;
-    color:var(--brown);
+    color:var(--brown-deep);
     text-align:center;
     margin-bottom:10px;
   }
   .guest-thumbs{
     display:grid;
     grid-template-columns:1fr 1fr 1fr;
-    gap:6px;
+    gap:10px;
   }
-  .guest-thumbs img{
-    aspect-ratio:2/3;
-    object-fit:cover;
-    border-radius:2px;
+  .thumb-card{
+    aspect-ratio:3/4;
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:6px;
+    box-shadow:0 2px 10px rgba(74,60,44,.08);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:8px;
+    overflow:hidden;
+  }
+  .thumb-card img{
+    max-width:100%;
+    max-height:100%;
+    width:auto;
+    height:auto;
+    object-fit:contain;
   }
 
   /* ENTOURAGE */
@@ -283,9 +336,10 @@
     list-style:none;
     text-align:center;
     font-family:'Cormorant Garamond',serif;
-    font-size:1.15rem;
-    color:var(--brown);
-    letter-spacing:.05em;
+    font-weight:600;
+    font-size:1.25rem;
+    color:var(--brown-deep);
+    letter-spacing:.03em;
   }
   details.ent-toggle summary::-webkit-details-marker{display:none;}
   details.ent-toggle summary::after{
@@ -297,10 +351,11 @@
   .ent-block{margin-bottom:32px;}
   .ent-block h4{
     text-align:center;
-    font-size:.75rem;
-    letter-spacing:.2em;
-    text-transform:uppercase;
-    color:var(--gold);
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.15rem;
+    font-weight:600;
+    letter-spacing:.04em;
+    color:var(--brown-deep);
     margin-bottom:14px;
   }
   .ent-pair{
@@ -308,32 +363,18 @@
     grid-template-columns:1fr 1fr;
     gap:24px;
     text-align:center;
-    font-size:.92rem;
+    font-size:1rem;
   }
   .ent-pair ul, .ent-single ul{list-style:none;}
   .ent-pair li, .ent-single li{margin-bottom:4px;}
-  .ent-single{text-align:center;font-size:.92rem;}
-
-  /* RSVP */
-  .rsvp-card{
-    margin-top:32px;
-    padding:36px 28px;
-    background:var(--cream);
-    border:1px solid var(--line);
-    text-align:center;
-    border-radius:2px;
-  }
-  .rsvp-card p{margin-bottom:18px;font-size:.95rem;}
-  .rsvp-contact{
-    font-family:'Cormorant Garamond',serif;
-    font-size:1.5rem;
+  .ent-single{text-align:center;font-size:1rem;}
+  .role-label{
+    font-size:.9rem;
+    font-weight:600;
+    letter-spacing:.08em;
+    text-transform:uppercase;
     color:var(--brown-deep);
-  }
-  .rsvp-note{
-    margin-top:16px;
-    font-size:.78rem;
-    color:var(--brown);
-    opacity:.8;
+    margin-bottom:6px;
   }
 
   footer{
@@ -341,7 +382,38 @@
     text-align:center;
   }
   footer .script{font-size:2rem;}
-  footer .foot-names{font-family:'Cormorant Garamond',serif;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;color:var(--brown);margin-top:8px;}
+  footer .foot-names{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:.95rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brown-deep);margin-top:8px;}
+
+  /* CONTACT */
+  .contact{background:var(--cream-deep);}
+  .contact-card{
+    margin-top:32px;
+    padding:32px 28px;
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:6px;
+    text-align:center;
+  }
+  .contact-label{
+    font-size:.85rem;
+    font-weight:600;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+  .contact-phone{
+    display:inline-block;
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;
+    font-size:1.7rem;
+    color:var(--brown-deep);
+  }
+  .contact-note{
+    margin-top:14px;
+    font-size:.9rem;
+    color:var(--text);
+  }
 
   /* GALLERY */
   .gallery-grid{
@@ -360,9 +432,26 @@
   .g-tall{aspect-ratio:4/5;}
   .g-wide{grid-column:1/-1;aspect-ratio:16/8;}
 
+  @media (max-width:680px){
+    /* Phone-first: stop forcing photos into fixed crop boxes. Every gallery
+       shot is a different composition (subjects close together vs. spread
+       apart), so a uniform aspect-ratio grid keeps clipping someone out of
+       frame. Stack full, uncropped photos instead — simpler and reliable. */
+    .gallery-grid{grid-template-columns:1fr;gap:16px;}
+    .gallery-grid img{height:auto;}
+    .g-tall,.g-wide{aspect-ratio:auto;}
+
+    /* Guest dress-code thumbnails: 2 columns of 3 photos each (6 across)
+       is too cramped to read on a phone. Stack Women/Men and show 2 per row,
+       with the 3rd (odd) photo centered on its own row instead of stranded
+       on the left. */
+    .guest-cols{grid-template-columns:1fr;gap:24px;}
+    .guest-thumbs{grid-template-columns:1fr 1fr;}
+    .thumb-card:last-child{grid-column:1/-1;max-width:calc(50% - 5px);margin:0 auto;}
+  }
+
   @media (max-width:560px){
     .detail-grid,.dress-grid,.ent-pair{grid-template-columns:1fr;}
-    .g-wide{aspect-ratio:4/5;}
   }
 </style>
 </head>
@@ -404,7 +493,7 @@
   <div class="wrap center">
     <div class="eyebrow">Behind the Scenes</div>
     <h2 class="section-title">A Few of Our Moments</h2>
-    <p class="verse" style="font-style:normal;font-size:.95rem;color:var(--brown);">The everyday ones — game nights, motorcycle rides, and quiet evenings — that led us here.</p>
+    <p class="lead">The everyday ones — game nights, motorcycle rides, and quiet evenings — that led us here.</p>
 
     <div class="gallery-grid">
       <figure class="g-tall"><img src="assets/img/gallery-1.jpg" alt="Mc Rosen and Krizza Lou on a rooftop balcony" loading="lazy" style="object-position:54% 60%;"></figure>
@@ -433,7 +522,7 @@
   <div class="wrap center">
     <div class="eyebrow">What to Wear</div>
     <h2 class="section-title">Dress Code</h2>
-    <p class="verse" style="font-style:normal;font-size:.95rem;color:var(--brown);">Earthy neutrals, please — we'd love for everyone to blend into our garden palette.</p>
+    <p class="lead">Earthy neutrals, please — we'd love for everyone to blend into our garden palette.</p>
 
     <div class="dress-tier">
       <div class="dress-tier-label">For Our Entourage</div>
@@ -441,7 +530,7 @@
         <div class="dress-card">
           <img src="assets/img/dresscode-female.jpg" alt="Entourage ladies dress code inspiration — earthy long dresses" loading="lazy">
           <h3>Ladies</h3>
-          <p style="text-align:center;font-size:.85rem;color:var(--brown);">Long dresses in cream, taupe, or brown</p>
+          <p class="cap-text">Infinity dresses in cream, taupe, or brown</p>
           <div class="swatches">
             <span class="swatch" style="background:#e9dfc9;"></span>
             <span class="swatch" style="background:#a68a63;"></span>
@@ -451,7 +540,7 @@
         <div class="dress-card">
           <img src="assets/img/dresscode-male.jpg" alt="Entourage gentlemen dress code inspiration — cream barong with black pants" loading="lazy">
           <h3>Gentlemen</h3>
-          <p style="text-align:center;font-size:.85rem;color:var(--brown);">Cream / beige Barong with black pants</p>
+          <p class="cap-text">Cream / beige Barong with black pants</p>
           <div class="swatches">
             <span class="swatch" style="background:#f0e8d4;"></span>
             <span class="swatch" style="background:#2b2620;"></span>
@@ -462,22 +551,22 @@
 
     <div class="dress-tier">
       <div class="dress-tier-label">For Our Guests</div>
-      <p style="font-size:.85rem;color:var(--brown);max-width:480px;margin:0 auto 22px;">Semi-formal to formal attire in earthy neutrals — think cream, beige, taupe, brown, and soft blush. Filipiniana welcome.</p>
+      <p class="lead" style="max-width:480px;margin:0 auto 22px;">Semi-formal to formal attire in earthy neutrals — think cream, ivory, beige, taupe, brown, and soft blush. Filipiniana welcome.</p>
       <div class="guest-cols">
         <div>
           <div class="guest-col-label">Women</div>
           <div class="guest-thumbs">
-            <img src="assets/img/guest-women-1.jpg" alt="Guest women attire example — neutral maxi dress" loading="lazy">
-            <img src="assets/img/guest-women-2.jpg" alt="Guest women attire example — filipiniana gown" loading="lazy">
-            <img src="assets/img/guest-women-3.jpg" alt="Guest women attire example — blush gown" loading="lazy">
+            <div class="thumb-card"><img src="assets/img/guest-women-1.jpg" alt="Guest women attire example — neutral maxi dress" loading="lazy"></div>
+            <div class="thumb-card"><img src="assets/img/guest-women-2.jpg" alt="Guest women attire example — filipiniana gown" loading="lazy"></div>
+            <div class="thumb-card"><img src="assets/img/guest-women-3.jpg" alt="Guest women attire example — blush gown" loading="lazy"></div>
           </div>
         </div>
         <div>
           <div class="guest-col-label">Men</div>
           <div class="guest-thumbs">
-            <img src="assets/img/guest-men-1.jpg" alt="Guest men attire example — brown blazer with cream trousers" loading="lazy">
-            <img src="assets/img/guest-men-2.jpg" alt="Guest men attire example — beige blazer" loading="lazy">
-            <img src="assets/img/guest-men-3.jpg" alt="Guest men attire example — white shirt with khaki trousers" loading="lazy">
+            <div class="thumb-card"><img src="assets/img/guest-men-1.jpg" alt="Guest men attire example — brown blazer with cream trousers" loading="lazy"></div>
+            <div class="thumb-card"><img src="assets/img/guest-men-2.jpg" alt="Guest men attire example — beige blazer" loading="lazy"></div>
+            <div class="thumb-card"><img src="assets/img/guest-men-3.jpg" alt="Guest men attire example — white shirt with khaki trousers" loading="lazy"></div>
           </div>
         </div>
       </div>
@@ -501,11 +590,11 @@
           <h4>Parents</h4>
           <div class="ent-pair">
             <div>
-              <p style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Groom</p>
+              <p class="role-label">Groom</p>
               <ul><li>Jimmy Villasista</li><li>Rosemarie Villasista</li></ul>
             </div>
             <div>
-              <p style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Bride</p>
+              <p class="role-label">Bride</p>
               <ul><li>Tadeo Carabbacan</li><li>Maria Lourdes Carabbacan</li></ul>
             </div>
           </div>
@@ -516,7 +605,7 @@
           <div class="ent-pair">
             <ul>
               <li>Ptr. Ricky Jumig</li>
-              <li>Ptr. Dave Moldez</li>
+              <li>Ptr. David Moldez</li>
               <li>Dr. Azriel Azarcon</li>
               <li>Dr. Alejandro Du</li>
               <li>Hon. Christian Casta&ntilde;eda</li>
@@ -525,17 +614,17 @@
               <li>Engr. Ramil Noel Egamino</li>
               <li>Marwin Luz</li>
               <li>Richard Chua</li>
-              <li>Christian Catahan</li>
+              <li>Christian Albert Catajan</li>
               <li>Randy Gonzales</li>
               <li>Gomer Perdido</li>
               <li>Fernando Martinez</li>
               <li>Rosie Domingo</li>
-              <li>Flory Sarabuno</li>
+              <li>Florinda Sarabuno</li>
               <li>Bernadette Raymundo</li>
             </ul>
             <ul>
               <li>Rochelle Jumig</li>
-              <li>Linda Moldez</li>
+              <li>Rosalinda Moldez</li>
               <li>Dr. Gloria Azarcon</li>
               <li>Dr. Jean Go Du</li>
               <li>Engr. Rosehleen Anjela Buenavista</li>
@@ -549,7 +638,7 @@
               <li>Eden Perdido</li>
               <li>Marilou Martinez</li>
               <li>Marilyn Manzan</li>
-              <li>Ollie Nepomuceno</li>
+              <li>Rosalinda Nepomuceno</li>
               <li>Corazon Felix</li>
             </ul>
           </div>
@@ -559,11 +648,11 @@
           <h4>Best Men &amp; Maids of Honor</h4>
           <div class="ent-pair">
             <div>
-              <p style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Best Men</p>
+              <p class="role-label">Best Men</p>
               <ul><li>Mc Peter Villasista</li><li>Aerodyn Tagura</li></ul>
             </div>
             <div>
-              <p style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Maids of Honor</p>
+              <p class="role-label">Maids of Honor</p>
               <ul><li>Angelyn Dela Cruz</li><li>Hikari Ueda</li></ul>
             </div>
           </div>
@@ -573,7 +662,7 @@
           <h4>Groomsmen &amp; Bridesmaids</h4>
           <div class="ent-pair">
             <div>
-              <p style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Groomsmen</p>
+              <p class="role-label">Groomsmen</p>
               <ul>
                 <li>Emmanuel Luis Villanueva</li>
                 <li>Villi Lee Vega</li>
@@ -586,7 +675,7 @@
               </ul>
             </div>
             <div>
-              <p style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Bridesmaids</p>
+              <p class="role-label">Bridesmaids</p>
               <ul>
                 <li>Rica Anne Ramos</li>
                 <li>Zynah Rhoss Tagura</li>
@@ -606,14 +695,15 @@
   </div>
 </section>
 
-<section class="rsvp">
+<section class="contact">
   <div class="wrap center">
-    <div class="eyebrow">Kindly Respond</div>
-    <h2 class="section-title">RSVP</h2>
-    <div class="rsvp-card">
-      <p>We can't wait to celebrate with you. Please let us know if you'll be joining us by reaching out directly.</p>
-      <div class="rsvp-contact">📞 0976 236 3224</div>
-      <p class="rsvp-note">Groom's office &middot; please RSVP at your earliest convenience</p>
+    <div class="eyebrow">Have Questions?</div>
+    <h2 class="section-title">Reach Out to Us</h2>
+    <p class="lead">For clarifications about the ceremony, venue, or anything else about the celebration, feel free to get in touch.</p>
+    <div class="contact-card">
+      <div class="contact-label">Groom's Office</div>
+      <a class="contact-phone" href="tel:+639762363224">📞 0976 236 3224</a>
+      <p class="contact-note">Available for calls and texts</p>
     </div>
   </div>
 </section>
