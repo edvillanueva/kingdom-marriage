@@ -210,36 +210,32 @@
   /* VIDEO */
   .video-frame{
     position:relative;
-    width:min(100%, 380px, 52vh * 0.5625);
-    aspect-ratio:9/16;
+    width:100%;
+    max-width:640px;
+    aspect-ratio:16/9;
     background:var(--brown-deep);
-    border-radius:2px;
+    border-radius:4px;
     overflow:hidden;
     margin:36px auto 0;
+    box-shadow:0 6px 24px rgba(74,60,44,.18);
+  }
+  .video-frame video{
+    width:100%;height:100%;
+    display:block;
+    object-fit:cover;
+  }
+  .sound-toggle{
+    position:absolute;
+    right:12px;bottom:12px;
+    width:40px;height:40px;
+    border-radius:50%;
+    border:1px solid rgba(250,245,235,.6);
+    background:rgba(20,16,10,.55);
+    color:#fdf9f0;
+    font-size:1.05rem;
+    display:flex;align-items:center;justify-content:center;
     cursor:pointer;
   }
-  .video-frame iframe{
-    width:100%;height:100%;border:0;display:block;
-  }
-  .video-poster{
-    position:absolute;inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:linear-gradient(135deg,#5c4a34,#372c1f);
-    color:#fdf9f0;
-    flex-direction:column;
-    gap:14px;
-  }
-  .play-btn{
-    width:64px;height:64px;
-    border-radius:50%;
-    background:rgba(250,245,235,.14);
-    border:1px solid rgba(250,245,235,.5);
-    display:flex;align-items:center;justify-content:center;
-    font-size:1.3rem;
-  }
-  .video-poster p{font-family:'Cormorant Garamond',serif;font-size:1.05rem;letter-spacing:.03em;}
 
   /* DRESS CODE */
   .dress-grid{
@@ -513,10 +509,10 @@
     <div class="eyebrow">A Little Note</div>
     <h2 class="section-title">Our Invitation to You</h2>
     <div class="video-frame" id="videoFrame">
-      <div class="video-poster" id="videoPoster">
-        <div class="play-btn">▶</div>
-        <p>Tap to watch our invitation</p>
-      </div>
+      <video id="inviteVideo" poster="assets/img/video-poster.jpg" muted loop playsinline preload="metadata" controls>
+        <source src="assets/video/invitation.mp4" type="video/mp4">
+      </video>
+      <button class="sound-toggle" id="soundToggle" aria-label="Turn sound on">🔇</button>
     </div>
   </div>
 </section>
@@ -717,15 +713,28 @@
 </footer>
 
 <script>
-  var poster = document.getElementById('videoPoster');
-  var frame = document.getElementById('videoFrame');
-  poster.addEventListener('click', function(){
-    var iframe = document.createElement('iframe');
-    iframe.src = 'https://drive.google.com/file/d/1Z601LzQrPMS5vm0BfNdRNbq507j_T4x4/preview';
-    iframe.allow = 'autoplay';
-    iframe.setAttribute('allowfullscreen', '');
-    frame.innerHTML = '';
-    frame.appendChild(iframe);
+  var video = document.getElementById('inviteVideo');
+  var soundToggle = document.getElementById('soundToggle');
+
+  // Play (muted) once the video scrolls into view, pause when it scrolls
+  // out. Muted autoplay is allowed on iOS/mobile browsers; unmuted is not.
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          video.play().catch(function(){ /* autoplay blocked; controls still work */ });
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.5 });
+    observer.observe(video);
+  }
+
+  soundToggle.addEventListener('click', function(){
+    video.muted = !video.muted;
+    soundToggle.textContent = video.muted ? '🔇' : '🔊';
+    soundToggle.setAttribute('aria-label', video.muted ? 'Turn sound on' : 'Turn sound off');
   });
 </script>
 
